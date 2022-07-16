@@ -1,21 +1,28 @@
 import type { GetServerSideProps, NextPage } from 'next'
 
-const Home: NextPage = ({ repositories }) => {
+type RepoProps = {
+  repos: Array<{
+    name: string
+    description: string
+    url: string
+  }>
+}
+
+const Home: NextPage<RepoProps> = ({ repos }) => {
   return (
     <ul>
-      {repositories.map(repo => (<li key={repo}>{repo}</li>))}
+      {repos.map((repo) => (<li key={repo.name}>{repo.name}</li>))}
     </ul>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch('https://api.github.com/users/brunorafaeI/repos')
-  const data = await res.json()
-  const repositories = data.map((item) => item.name)
+  const repos = await res.json()
 
   return {
     props: {
-      repositories
+      repos
     }
   }
 
