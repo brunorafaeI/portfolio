@@ -1,4 +1,8 @@
 import type { GetServerSideProps, NextPage } from 'next'
+import Particles from 'react-tsparticles'
+import PortfolioParticles from '../components/particles'
+
+import Welcome from '../components/welcome'
 
 type RepoProps = {
   repos: Array<{
@@ -10,9 +14,10 @@ type RepoProps = {
 
 const Home: NextPage<RepoProps> = ({ repos }) => {
   return (
-    <ul>
-      {repos.map((repo) => (<li key={repo.name}>{repo.name}</li>))}
-    </ul>
+    <div className='main-container'>
+      <Welcome />
+      <PortfolioParticles />
+    </div>
   )
 }
 
