@@ -1,20 +1,16 @@
-import React from 'react'
+import { Container } from "./styles"
 
-export const Welcome: React.FC = () => {
+const Welcome = () => {
   return (
-    <div className='welcome-container'>
-       <span>
-        Hi there!
-      </span>
-      <h1>
-        I am Bruno, a full-stack developer.
-      </h1>
+    <Container>
+      <span>Hi there! </span>
+      <h1>I am Bruno, a Full-Stack developer. </h1>
       <span>
-      I create an efficient UI mobile or web design also UX research to make sure that I get what people needs and strategy for interaction design.
+        I create an efficient UI mobile or web design also UX research to make sure
+        that I get what people needs and strategy for interaction design.
       </span>
-    </div>
+    </Container>
   )
 }
-
 
 export default Welcome

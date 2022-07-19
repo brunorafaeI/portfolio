@@ -1,36 +1,14 @@
-import type { GetServerSideProps, NextPage } from 'next'
-import Particles from 'react-tsparticles'
-import PortfolioParticles from '../components/particles'
+import type { NextPage } from 'next'
+import { Main } from '../assets/styles/shared'
 
 import Welcome from '../components/welcome'
 
-type RepoProps = {
-  repos: Array<{
-    name: string
-    description: string
-    url: string
-  }>
-}
-
-const Home: NextPage<RepoProps> = ({ repos }) => {
+const Home: NextPage = () => {
   return (
-    <div className='main-container'>
+    <Main>
       <Welcome />
-      <PortfolioParticles />
-    </div>
+    </Main>
   )
-}
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch('https://api.github.com/users/brunorafaeI/repos')
-  const repos = await res.json()
-
-  return {
-    props: {
-      repos
-    }
-  }
-
 }
 
 export default Home

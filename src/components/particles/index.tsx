@@ -8,10 +8,10 @@ const PortfolioParticles = () => {
       enable: true, // set this to false to use the particles like any other DOM element, with this true they act like a background
       zIndex: -1,
     },
-    fpsLimit: 100,
+    fpsLimit: 60,
     particles: {
       number: {
-        value: 80,
+        value: 40,
         density: {
           enable: true,
           area: 800,
